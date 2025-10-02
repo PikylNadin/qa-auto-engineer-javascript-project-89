@@ -118,8 +118,9 @@ class AppPage {
 
       const rulesElement = await screen.findByText('Принять правила')
       expect(rulesElement.nextSibling).toHaveTextContent('true')
-    } 
-      catch (error) {
+    }
+
+    catch (error) {
       console.error('Table not found or content incorrect within timeout:', error)
       throw error
     }

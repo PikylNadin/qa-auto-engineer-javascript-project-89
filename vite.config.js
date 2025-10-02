@@ -10,8 +10,8 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.js'],
     server: {
       deps: {
-        inline: ['@hexlet/chatbot-v2']
-      }
-    }
-  }
+        inline: ['@hexlet/chatbot-v2'],
+      },
+    },
+  },
 })

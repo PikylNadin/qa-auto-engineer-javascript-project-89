@@ -1,42 +1,42 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Widget from '@hexlet/chatbot-v2'
 import steps from '../__fixtures__/steps.js'
 
 const App = () => {
   const [form, setForm] = useState({
-    email: "",
-    password: "",
-    city: "",
-    country: "",
-    address: "",
+    email: '',
+    password: '',
+    city: '',
+    country: '',
+    address: '',
     acceptRules: false,
-  });
-  const [submittingState, setSubmittingState] = useState("fillingForm")
+  })
+  const [submittingState, setSubmittingState] = useState('fillingForm')
 
   const handleChangeField = ({ target }) => {
-    const value = target.type === "checkbox" ? target.checked : target.value
+    const value = target.type === 'checkbox' ? target.checked : target.value
     setForm({ ...form, [target.name]: value })
   }
 
   const handleBackToForm = () => {
-    setSubmittingState("fillingForm")
+    setSubmittingState('fillingForm')
   }
 
   const handleSubmitForm = (e) => {
-    e.preventDefault();
-    setSubmittingState("submitted")
+    e.preventDefault()
+    setSubmittingState('submitted')
   }
 
   const enToRus = {
-    email: "Email",
-    password: "Пароль",
-    city: "Город",
-    country: "Страна",
-    address: "Адрес",
-    acceptRules: "Принять правила",
+    email: 'Email',
+    password: 'Пароль',
+    city: 'Город',
+    country: 'Страна',
+    address: 'Адрес',
+    acceptRules: 'Принять правила',
   }
 
-  const renderRow = (key) => (
+  const renderRow = key => (
     <tr key={key}>
       <td>{enToRus[key]}</td>
       <td>{form[key].toString()}</td>
@@ -138,23 +138,23 @@ const App = () => {
           <option value="Китай">Китай</option>
         </select>
       </div>
-      <div className="col-md-6 mb-3">
-        <div className="form-check">
-          <label className="form-check-label" htmlFor="rules">
+      <div className='col-md-6 mb-3'>
+        <div className='form-check'>
+          <label className='form-check-label' htmlFor='rules'>
             <input
-              autoComplete="on"
-              id="rules"
-              name="acceptRules"
-              className="form-check-input"
+              autoComplete='on'
+              id='rules'
+              name='acceptRules'
+              className='form-check-input'
               onChange={handleChangeField}
-              type="checkbox"
+              type='checkbox'
               checked={form.acceptRules}
             />
             Принять правила
           </label>
         </div>
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type='submit' className='btn btn-primary'>
         Зарегистрироваться
       </button>
     </form>
@@ -162,7 +162,7 @@ const App = () => {
 
   return (
     <>
-      {submittingState === "fillingForm" ? renderForm() : renderResult()}
+      {submittingState === 'fillingForm' ? renderForm() : renderResult()}
       {Widget(steps)}
     </>
   )

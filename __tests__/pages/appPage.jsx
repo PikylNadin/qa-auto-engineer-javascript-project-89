@@ -5,7 +5,7 @@ import { openWidgetButtonText, registrationButtonText, formLabels, modalTitleTex
 
 class AppPage {
   static renderApp() {
-    render(<App />);
+    render(<App />)
   }
 
   static get openWidgetButton() {
@@ -35,7 +35,7 @@ class AppPage {
   static closeWidget() {
     const closeButton = screen.getByRole('button', {
       name: closeButtonLabel,
-    });
+    })
     fireEvent.click(closeButton)
   }
 
@@ -87,7 +87,7 @@ class AppPage {
         value: 'Россия',
       },
     })
-    fireEvent.click(this.getFormInputLabel('Принять правила'));
+    fireEvent.click(this.getFormInputLabel('Принять правила'))
   }
 
   static expectFormValues() {
@@ -118,8 +118,8 @@ class AppPage {
 
       const rulesElement = await screen.findByText('Принять правила')
       expect(rulesElement.nextSibling).toHaveTextContent('true')
-
-    } catch (error) {
+    } 
+      catch (error) {
       console.error('Table not found or content incorrect within timeout:', error)
       throw error
     }
